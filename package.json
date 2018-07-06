@@ -1,0 +1,32 @@
+{
+  "name": "homebridge-sprinklerd",
+  "version": "0.0.1",
+  "description": "Sprinklerd Platform plugin for homebridge: https://github.com/sfeakes/homebridge-sprinklerd",
+  "license": "ISC",
+  "keywords": [
+    "homebridge-plugin",
+    "sprinkler",
+    "sprinklerd",
+    "homebridge",
+    "homekit",
+  ],
+  "author": {
+    "name": "Shaun Feakes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sfeakes/homebridge-sprinklerd.git"
+  },
+  "bugs": {
+    "url": "http://github.com/sfeakes/homebridge-sprinklerd/issues"
+  },
+  "engines": {
+    "node": ">=4.0.0",
+    "homebridge": ">=0.4.40"
+  },
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "mqtt": "^2.15.0",
+    "request": "^2.81.0"
+  }
+}
