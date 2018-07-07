@@ -81,8 +81,8 @@ function SprinklerdPlatform(log, config, api) {
     this.api.once("didFinishLaunching", function() {
       var syncDevices = function() {
         this.synchronizeAccessories();
-        //setTimeout(syncDevices.bind(this), 600000); // Sync devices every 10 minutes
-        setTimeout(syncDevices.bind(this), 6000); // Sync devices every 1 minutes
+        setTimeout(syncDevices.bind(this), 600000); // Sync devices every 10 minutes
+        //setTimeout(syncDevices.bind(this), 6000); // Sync devices every 1 minutes
       }.bind(this);
       syncDevices();
 
@@ -133,7 +133,6 @@ SprinklerdPlatform.prototype = {
                               }
                               if (existingAccessory.id == Constants.idCycleAllZones && existingAccessory.zonenumber != device.zone) {
                                 this.log("Background update to '"+existingAccessory.id+"' zone# old="+existingAccessory.zonenumber+" new="+device.zone);
-                                console.log("Background update to '"+existingAccessory.id+"' zone# old="+existingAccessory.zonenumber+" new="+device.zone);
                                 existingAccessory.zonenumber = device.zone;
                               }
                               
