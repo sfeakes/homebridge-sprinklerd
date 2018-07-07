@@ -1,7 +1,36 @@
+
+// Example ~/.homebridge/config.json content:
+//
+// {
+//  "bridge": {
+//         "name": "Homebridge",
+//         "username": "CC:21:3E:E4:DE:33", // << Randomize this...
+//         "port": 51826,
+//         "pin": "031-45-154", // << Change pin
+//      },
+//
+//  "platforms": [{
+//         "platform": "sprinklerd",
+//         "name": "sprinklerd",
+//         "server": "127.0.0.1", // servername/ip running SprinklerD
+//         "port": "80",
+//         "mqtt": {
+ //              "host": "mqtt-server.name",  // servername/ip running MQTT
+//               "port": 1883,
+//               "topic": "sprinklerd"
+//         }
+//    }],
+//  "accessories":[]
+// }
+//
+
+
+
 var Sprinkler = require('./lib/sprinkler.js').Sprinkler;
 var Mqtt = require('./lib/mqtt.js').Mqtt;
 var Utils = require('./lib/utils.js').Utils;
 var SprinklerdAccessory = require('./lib/sprinklerd_accessory.js');
+var Constants = require('./lib/constants.js');
 
 const util = require('util');
 
@@ -52,8 +81,8 @@ function SprinklerdPlatform(log, config, api) {
     this.api.once("didFinishLaunching", function() {
       var syncDevices = function() {
         this.synchronizeAccessories();
-        setTimeout(syncDevices.bind(this), 600000); // Sync devices every 10 minutes
-        //setTimeout(syncDevices.bind(this), 6000); // Sync devices every 1 minutes
+        //setTimeout(syncDevices.bind(this), 600000); // Sync devices every 10 minutes
+        setTimeout(syncDevices.bind(this), 6000); // Sync devices every 1 minutes
       }.bind(this);
       syncDevices();
 
@@ -98,10 +127,14 @@ SprinklerdPlatform.prototype = {
                                 this.log("Background update to '"+existingAccessory.id+"' state old="+existingAccessory.state+" new="+(device.state=="on"?true:false))
                                 existingAccessory.state = (device.state==1?true:false);
                               }
-
                               if (device.duration != existingAccessory.duration) {
                                 this.log("Background update to '"+existingAccessory.id+"' duration old="+existingAccessory.duration+" new="+device.duration);
                                 existingAccessory.duration = device.duration;
+                              }
+                              if (existingAccessory.id == Constants.idCycleAllZones && existingAccessory.zonenumber != device.zone) {
+                                this.log("Background update to '"+existingAccessory.id+"' zone# old="+existingAccessory.zonenumber+" new="+device.zone);
+                                console.log("Background update to '"+existingAccessory.id+"' zone# old="+existingAccessory.zonenumber+" new="+device.zone);
+                                existingAccessory.zonenumber = device.zone;
                               }
                               
                               continue;
