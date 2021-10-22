@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sprinklerd",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Sprinklerd Platform plugin for homebridge: https://github.com/sfeakes/homebridge-sprinklerd",
   "license": "ISC",
   "keywords": [
