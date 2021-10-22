@@ -1,0 +1,84 @@
+{
+	"pluginAlias": "sprinklerd",
+	"pluginType": "platform",
+	"singular": false,
+	"headerDisplay": "Homebridge plugin for SprinklerD",
+	"footerDisplay": "For help visit [Homebridge-SprinklerD on GitHub](https://github.com/sfeakes/homebridge-sprinklerd) or [SprinklerD on GitHub](https://github.com/sfeakes/SprinklerD)",
+	"schema": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string",
+				"default": "SprinklerD",
+				"required": true
+			},
+			"server": {
+				"title": "Server",
+				"type": "string",
+				"default": "sprinklerd.local",
+				"required": true,
+				"description": "Server running SprinklerD"
+			},
+			"port": {
+				"title": "Port",
+				"type": "string",
+				"default": "80",
+				"required": true,
+				"description": "SprinklerD port"
+			},
+			"mqtt": {
+			    "type": "object",
+			    "properties": {
+			    "host": {
+					"title": "MQTT Server",
+					"type": "string",
+					"default": "127.0.0.1",
+					"required": true,
+					"description": "Server running MQTT"
+				  },
+				  "port": {
+					"title": "MQTT Port",
+					"type": "string",
+					"default": "1883",
+					"required": true,
+					"description": "Port for MQTT server"
+				  },
+				  "topic": {
+					"title": "MQTT Topic",
+					"type": "string",
+					"default": "sprinklerd",
+					"required": true,
+					"description": "MQTT topic SprinklerD server uses"
+				  },
+				  "username": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Username",
+                    "description": "Username for MQTT server (optional)"
+                  },
+                  "password": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Password",
+                    "description": "Password for MQTT server (optional)"
+                  }
+			    }
+			}
+		}
+	},
+	"form": [
+		"name", {
+			"type": "flex",
+			"items": [
+				"server",
+				"port",
+				"mqtt.host",
+				"mqtt.port",
+				"mqtt.topic",
+				"mqtt.username",
+				"mqtt.password"
+			]
+		}
+	]
+}

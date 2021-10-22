@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sprinklerd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sprinklerd Platform plugin for homebridge: https://github.com/sfeakes/homebridge-sprinklerd",
   "license": "ISC",
   "keywords": [
@@ -10,9 +10,7 @@
     "homebridge",
     "homekit"
   ],
-  "author": {
-    "name": "Shaun Feakes"
-  },
+  "author": "Shaun Feakes",
   "repository": {
     "type": "git",
     "url": "git://github.com/sfeakes/homebridge-sprinklerd.git"
@@ -28,5 +26,14 @@
     "inherits": "^2.0.1",
     "mqtt": "^2.15.0",
     "request": "^2.81.0"
+  },
+  "homepage": "https://github.com/sfeakes/homebridge-sprinklerd#readme",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

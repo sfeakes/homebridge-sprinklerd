@@ -196,7 +196,8 @@ SprinklerdPlatform.prototype = {
     var device = platformAccessory.context.device;
     var uuid = platformAccessory.context.uuid;
 
-    console.log("Loading platform accessory! (" + device.name + " | " + uuid + ")");
+    //console.log("Loading platform accessory! (" + device.name + " | " + uuid + ")");
+    this.forceLog("Loading platform accessory [" + device.name + "]");
 
     // Generate the already cached accessory again
     var accessory = new SprinklerdAccessory(this, platformAccessory, device.id, device.state, device.type, device.zone, device.name, device.duration, uuid);
