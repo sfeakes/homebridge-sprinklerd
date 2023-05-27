@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sprinklerd",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Sprinklerd Platform plugin for homebridge: https://github.com/sfeakes/homebridge-sprinklerd",
   "license": "ISC",
   "keywords": [
@@ -25,14 +25,13 @@
   "dependencies": {
     "inherits": "^2.0.1",
     "mqtt": "^2.15.0",
-    "request": "^2.81.0"
+    "node-fetch": "^2.6.11"
   },
   "homepage": "https://github.com/sfeakes/homebridge-sprinklerd#readme",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
